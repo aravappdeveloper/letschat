@@ -1,3 +1,10 @@
+var user = localStorage.getItem("username");
+function welcomeUser(){
+      var welcome_user = "Welcome, " + user + "!";
+      document.getElementById("username").innerHTML = welcome_user;
+}
+welcomeUser();
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
       apiKey: "AIzaSyDa5veQodn8TDeEWV3cNIEgkQxe2UwOLdU",
@@ -18,3 +25,14 @@ function getData() {firebase.database().ref("/").on('value', function(snapshot) 
       //End code
       });});}
 getData();
+
+function logout(){
+      window.location = "index.html";
+      localStorage.removeItem("username");
+}
+
+var room = document.getElementById("room_name").value;
+
+function addRoom(){
+      localStorage.setItem("current_room", room);
+}
